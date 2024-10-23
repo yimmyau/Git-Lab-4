@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.tabla {
+    display: grid;
+    grid-template-columns: repeat(18, 50px); /* Mantiene 18 columnas por defecto */
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.seccion {
+    border: 1px solid black;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.grupo1 { background-color: #F7CAAC; }
+.grupo2 { background-color: #FFE599; }
+.grupo3 { background-color: #FFFF00; }
+.grupo4 { background-color: #8EAADB; }
+.grupo5 { background-color: #68FB61; }
+.grupo6 { background-color: #DDABFF; }
+.grupo7 { background-color: #FF66FF; }
+.grupo8 { background-color: #00CCFF; }
+
+.empty1 {
+    background-color: white;
+    grid-column: span 16;
+}
+
+.empty2y3 {
+    background-color: white;
+    grid-column: span 10;
+}
+
+.grupo {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 15%;
+}
+
+/* Hover effect general fuera del rango de 601px y 800px */
+.seccion:hover {
+    background-color: #031FA2; /* Fondo azul oscuro */
+    color: white;
+}
+
+/* Responsivo */
+
+/* Para pantallas de hasta 600px de ancho: dos columnas */
+@media (max-width: 600px) {
+    .tabla {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+}
+
+/* Para pantallas entre 601px y 800px */
+@media (min-width: 601px) and (max-width: 800px) {
+    .tabla {
+        grid-template-columns: repeat(18, 1fr); /* Mantiene 18 columnas por defecto */
+    }
+
+    /* Hover effect solo para pantallas entre 601px y 800px */
+    .seccion:hover {
+        background-color: #C11905; /* Color al pasar el puntero */
+        color: white;
+    }
+
+    /* Secciones 1 y 2 juntas en orientación horizontal */
+    .grupo1, .grupo2 {
+        grid-column: span 9; /* Cada una ocupa 9 columnas en horizontal */
+    }
+
+    /* Sección 3 en una fila con un máximo de 5 columnas de ancho */
+    .grupo3 {
+        grid-column: span 5;
+    }
+    
+    /* Secciones 7 y 8 juntas en orientación horizontal */
+    .grupo7, .grupo8 {
+        grid-column: span 9; /* Cada una ocupa 9 columnas */
+    }
+}
